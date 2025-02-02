@@ -103,12 +103,18 @@ export default function SiteNavbar() {
               key={item.name}
               as={NavLink}
               to={item.href}
-              className={({ isActive }) => clsx(
-                isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium'
-              )}
             >
-              {item.name}
+              {() => (
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) => clsx(
+                    isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block rounded-md px-3 py-2 text-base font-medium'
+                  )}
+                >
+                  {item.name}
+                </NavLink>
+              )}
             </DisclosureButton>
           ))}
         </div>
